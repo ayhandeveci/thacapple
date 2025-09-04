@@ -3,103 +3,169 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>thacapple — selective builds</title>
-  <meta name="description" content="thacapple — selective builds in AI, actuarial & automation.">
+  <title>thacapple — AI-Integrated Solutions</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root{
-      --ink:#0a0c10;
-      --line:rgba(255,255,255,.08);
-      --glass:rgba(255,255,255,.04);
-      --muted:#cfd6df;
-      --gold:#F0B44B;
-    }
+    :root{--ink:#0a0c10;--line:rgba(255,255,255,.08);--glass:rgba(255,255,255,.04);
+          --muted:#cfd6df;--gold:#F0B44B}
     html,body{background:var(--ink);color:#e7eaee;font-family:Inter,system-ui}
     .glass{backdrop-filter:saturate(140%) blur(10px);background:var(--glass);border:1px solid var(--line)}
-    .btn{background:var(--gold);color:#12161b}
-    .btn:hover{opacity:.92}
-    .chip{border:1px solid var(--line);background:rgba(255,255,255,.03);color:#cfd6df}
-    .shade{background:rgba(0,0,0,.65)}
+    .btn{background:var(--gold);color:#12161b}.btn:hover{opacity:.92}
+    .ghost{border:1px solid var(--line);background:rgba(255,255,255,.03);color:#cfd6df}
+    .ghost:hover{background:rgba(255,255,255,.06)}
+    .shade{background:rgba(0,0,0,.7)}
     .sub{letter-spacing:.24em;color:#aeb7c2;text-transform:uppercase;font-size:.72rem}
+    .pill{border-radius:9999px}
+    .mxw{max-width:42rem}
+    .img-fit{object-fit:contain}
   </style>
 </head>
 <body class="min-h-screen grid place-items-center px-6">
-  <!-- Centered, single column -->
-  <main class="w-full max-w-2xl text-center py-16">
-    <img src="./assets/logo.png" alt="thacapple" class="w-16 h-16 mx-auto rounded mb-6" />
-
-    <!-- Motto -->
+  <main class="w-full mxw text-center py-16">
     <div class="sub mb-2">Think · Act · Apply · Learn</div>
 
-    <!-- Manifesto -->
     <h1 class="text-4xl md:text-5xl font-extrabold leading-[1.05]">
-      Selective builds. <span style="color:var(--gold)">No noise.</span>
+      Real-World Problems. <span style="color:var(--gold)">AI-Integrated Solutions.</span>
     </h1>
-    <p class="mt-4 text-[var(--muted)] max-w-xl mx-auto">
-      We build selectively and cut the noise. Past work proves our edge.
-      Current focus sharpens our pipelines. Next moves stay open — we prefer shipping over promising.
+
+    <p class="mt-4 text-[var(--muted)]">
+      We model real events and ship modern micro-solutions across Football, Finance, Insurance & Actuarial, and Agriculture.
     </p>
 
-    <div class="mt-7 flex flex-wrap justify-center gap-2 text-xs">
-      <span class="chip rounded-xl px-3 py-1">IFRS‑17</span>
-      <span class="chip rounded-xl px-3 py-1">ALM</span>
-      <span class="chip rounded-xl px-3 py-1">Automation</span>
-      <span class="chip rounded-xl px-3 py-1">Video</span>
-    </div>
-
     <div class="mt-10 grid gap-2">
-      <button id="openPdf" class="btn px-6 py-4 rounded-2xl font-semibold">Timeline →</button>
-      <div class="text-xs text-[var(--muted)]">See where we’ve been — and where we’re heading.</div>
-      <a class="chip inline-block rounded-2xl px-6 py-4 mt-4" href="https://www.linkedin.com/company/90474651/admin/dashboard/" target="_blank" rel="noopener">LinkedIn</a>
+      <button id="openPdf" class="btn px-6 py-4 pill font-semibold">Timeline →</button>
+      <div id="pdfHint" class="text-xs text-[var(--muted)]">See the cases, pivots, and what’s next.</div>
+      <a class="ghost inline-block pill px-6 py-4 mt-4" href="https://www.linkedin.com/company/90474651/admin/dashboard/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
 
-    <!-- Open-ended sections (minimal, quiet) -->
     <section class="mt-14 grid gap-6 text-left">
-      <div class="glass rounded-2xl p-5">
-        <div class="sub">Past</div>
-        <div class="text-sm text-[var(--muted)] mt-2">Selective outcomes; we keep it concise.</div>
-      </div>
-      <div class="glass rounded-2xl p-5">
-        <div class="sub">Now</div>
-        <div class="text-sm text-[var(--muted)] mt-2">Modeling, reporting, clean pipelines.</div>
-      </div>
-      <div class="glass rounded-2xl p-5">
-        <div class="sub">Next</div>
-        <div class="text-sm text-[var(--muted)] mt-2">Deliberately open‑ended; ship > promise.</div>
-      </div>
+      <article class="glass rounded-2xl p-5">
+        <div class="sub">Upcoming</div>
+        <p class="text-sm text-[var(--muted)] mt-2"><strong>modelG</strong> — an exclusive video series that models real-world events end-to-end, sharing the reasoning, data, and code.</p>
+      </article>
+      <article class="glass rounded-2xl p-5">
+        <div class="sub">Current</div>
+        <p class="text-sm text-[var(--muted)] mt-2">Resetting and laying groundwork for the next cycle: infra upgrades, data hygiene, and a review of the previous period’s outcomes.</p>
+      </article>
+      <article class="glass rounded-2xl p-5">
+        <div class="sub">Previous (delivered)</div>
+        <ul class="text-sm text-[var(--muted)] mt-2 list-disc pl-5 space-y-1">
+          <li><strong>Skills Hub</strong> — short-term bootcamps for early-career talent.</li>
+          <li><strong>Growth Hub</strong> — a 2-year track; mentored two standout students who now continue in professional roles. <a href="#" id="openGallery" class="underline decoration-dotted">View Growth Hub detail</a></li>
+          <li><strong>ResAst & DAST</strong> — full-stack Python desktop apps for non-life reserving and data/automation; parked until the next Growth Hub intake.</li>
+          <li><strong>Selected projects</strong>: Benford analysis; IFRS-17 profit-pattern automation; DASK tariff pricing; GLM house-price severity; bond pricer; actuarial risk premium; catastrophic risk; Raven; AI TTS & video; IFRS-17 LLM; commercial scrape→publish. <em>(Full timeline in the PDF.)</em></li>
+        </ul>
+      </article>
     </section>
 
     <footer class="mt-14 text-xs text-[#98a3af]">© <script>document.write(new Date().getFullYear())</script> thacapple</footer>
   </main>
 
-  <!-- MODAL -->
-  <div id="modal" class="fixed inset-0 hidden">
+  <!-- PDF Modal -->
+  <div id="pdfModal" class="fixed inset-0 hidden">
     <div class="absolute inset-0 shade"></div>
     <div class="absolute inset-0 p-4 md:p-8 grid place-items-center">
       <div class="glass w-full max-w-5xl h-[80vh] rounded-2xl overflow-hidden relative">
-        <button id="closePdf" class="absolute top-3 right-3 chip rounded-xl px-3 py-1 text-xs">Close</button>
-        <iframe src="./assets/timeline.pdf#toolbar=0&view=FitH" class="w-full h-full bg-black"></iframe>
+        <button id="closePdf" class="absolute top-3 right-3 ghost pill px-3 py-1 text-xs">Close</button>
+        <iframe id="pdfFrame" class="w-full h-full bg-black" title="Timeline PDF"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gallery Modal -->
+  <div id="galleryModal" class="fixed inset-0 hidden">
+    <div class="absolute inset-0 shade"></div>
+    <div class="absolute inset-0 p-4 md:p-8 grid place-items-center">
+      <div class="glass w-full max-w-4xl h-[80vh] rounded-2xl overflow-hidden relative flex flex-col">
+        <div class="flex items-center justify-between p-3">
+          <div class="text-xs text-[var(--muted)]">Growth Hub — detail</div>
+          <div class="flex items-center gap-2">
+            <button id="prevImg" class="ghost pill px-3 py-1 text-xs">Prev</button>
+            <button id="nextImg" class="ghost pill px-3 py-1 text-xs">Next</button>
+            <button id="closeGallery" class="ghost pill px-3 py-1 text-xs">Close</button>
+          </div>
+        </div>
+        <div class="flex-1 bg-black">
+          <img id="galleryImg" class="w-full h-full img-fit" alt="Growth Hub visual"/>
+        </div>
       </div>
     </div>
   </div>
 
   <script>
-    const modal = document.getElementById('modal');
+    // Helper: pick first existing file from candidates
+    async function pickExisting(candidates){
+      for(const url of candidates){
+        try{ const r = await fetch(url,{method:'HEAD',cache:'no-store'}); if(r.ok) return url; }catch(e){}
+      }
+      return null;
+    }
+
+    // Auto-detect PDF path
+    const pdfCandidates = [
+      './assets/timeline.pdf','./assets/Map.pdf','./assets/work.pdf',
+      './timeline.pdf','./Map.pdf'
+    ];
+    let pickedPdf = null;
+    (async () => {
+      pickedPdf = await pickExisting(pdfCandidates);
+      const hint = document.getElementById('pdfHint');
+      if(!pickedPdf){
+        hint.innerHTML = "PDF not found. Upload <code>assets/timeline.pdf</code> or <code>assets/Map.pdf</code>.";
+        document.getElementById('openPdf').disabled = true;
+        document.getElementById('openPdf').style.opacity = .6;
+      }
+    })();
+
+    // Open/Close PDF modal
+    const pdfModal = document.getElementById('pdfModal');
+    const pdfFrame = document.getElementById('pdfFrame');
     document.getElementById('openPdf').addEventListener('click', ()=>{
-      modal.classList.remove('hidden');
+      if(!pickedPdf) return;
+      pdfFrame.src = pickedPdf + '#toolbar=0&view=FitH';
+      pdfModal.classList.remove('hidden');
       document.body.style.overflow='hidden';
     });
     document.getElementById('closePdf').addEventListener('click', ()=>{
-      modal.classList.add('hidden');
-      document.body.style.overflow='auto';
+      pdfModal.classList.add('hidden'); document.body.style.overflow='auto'; pdfFrame.src='';
     });
-    modal.addEventListener('click', (e)=>{
-      if(e.target === modal || e.target.classList.contains('shade')){
-        modal.classList.add('hidden'); document.body.style.overflow='auto';
+    pdfModal.addEventListener('click', (e)=>{ if(e.target === pdfModal){ pdfModal.classList.add('hidden'); document.body.style.overflow='auto'; pdfFrame.src=''; }});
+
+    // Gallery images (auto-detect)
+    const galleryCandidates = [
+      ['./assets/growth1.png','./assets/growth2.png'],
+      ['./assets/1.png','./assets/2.png']
+    ];
+    let imgs = [];
+    (async ()=>{
+      for(const pair of galleryCandidates){
+        const a = await pickExisting([pair[0]]); const b = await pickExisting([pair[1]]);
+        if(a && b){ imgs = [a,b]; break; }
       }
-    });
+      if(imgs.length===0){ const link=document.getElementById('openGallery'); if(link) link.style.display='none'; }
+    })();
+
+    const galleryModal = document.getElementById('galleryModal');
+    const openGallery = document.getElementById('openGallery');
+    const closeGallery = document.getElementById('closeGallery');
+    const prevBtn = document.getElementById('prevImg');
+    const nextBtn = document.getElementById('nextImg');
+    const galleryImg = document.getElementById('galleryImg');
+    let idx = 0;
+
+    if(openGallery){
+      openGallery.addEventListener('click', (e)=>{
+        e.preventDefault(); if(imgs.length===0) return;
+        galleryModal.classList.remove('hidden'); document.body.style.overflow='hidden';
+        idx=0; galleryImg.src = imgs[idx];
+      });
+    }
+    closeGallery.addEventListener('click', ()=>{ galleryModal.classList.add('hidden'); document.body.style.overflow='auto'; });
+    galleryModal.addEventListener('click', (e)=>{ if(e.target === galleryModal){ galleryModal.classList.add('hidden'); document.body.style.overflow='auto'; }});
+    prevBtn.addEventListener('click', ()=>{ if(imgs.length){ idx = (idx - 1 + imgs.length) % imgs.length; galleryImg.src = imgs[idx]; }});
+    nextBtn.addEventListener('click', ()=>{ if(imgs.length){ idx = (idx + 1) % imgs.length; galleryImg.src = imgs[idx]; }});
   </script>
 </body>
 </html>
