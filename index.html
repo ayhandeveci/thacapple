@@ -25,11 +25,9 @@
 <body class="min-h-screen grid place-items-center px-6">
   <main class="w-full mxw text-center py-16">
     <div class="sub mb-2">Think · Act · Apply · Learn</div>
-
     <h1 class="text-4xl md:text-5xl font-extrabold leading-[1.05]">
       Real-World Problems. <span style="color:var(--gold)">AI-Integrated Solutions.</span>
     </h1>
-
     <p class="mt-4 text-[var(--muted)]">
       We model real events and ship modern micro-solutions across Football, Finance, Insurance & Actuarial, and Agriculture.
     </p>
@@ -74,66 +72,39 @@
     <div class="absolute inset-0 p-4 md:p-8 grid place-items-center">
       <div class="glass w-full max-w-5xl h-[80vh] rounded-2xl overflow-hidden relative">
         <button id="closePdf" class="absolute top-3 right-3 ghost pill px-3 py-1 text-xs">Close</button>
-        <iframe id="pdfFrame" class="w-full h-full bg-black"></iframe>
+        <!-- FIX: hard path to work.pdf -->
+        <iframe src="./assets/work.pdf#toolbar=0&view=FitH" class="w-full h-full bg-black"></iframe>
       </div>
     </div>
   </div>
 
-  <!-- Selected Projects Modal (two images side-by-side) -->
+  <!-- Selected Projects Modal (two JPEGs side-by-side) -->
   <div id="selectedModal" class="fixed inset-0 hidden">
     <div class="absolute inset-0 shade"></div>
     <div class="absolute inset-0 p-4 md:p-8 grid place-items-center">
       <div class="glass w-full max-w-6xl h-[85vh] rounded-2xl overflow-hidden relative">
-        <div class="flex items-center justify-between px-4 pt-3 text-xs text-[var(--muted)]">
-          <span>Selected 1</span><span>Selected 2</span>
-          <button id="closeSelected" class="ghost pill px-3 py-1">Close</button>
-        </div>
-        <div class="w-full h-[calc(100%-40px)] bg-black p-2 md:p-4 grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
-          <img id="sel1" class="w-full h-full img-fit" alt="Selected 1"/>
-          <img id="sel2" class="w-full h-full img-fit" alt="Selected 2"/>
+        <button id="closeSelected" class="absolute top-3 right-3 ghost pill px-3 py-1 text-xs">Close</button>
+        <div class="w-full h-full bg-black p-2 md:p-4 grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
+          <!-- FIX: hard paths to JPEGs -->
+          <img src="./assets/growth1.jpeg" class="w-full h-full img-fit" alt="Selected 1"/>
+          <img src="./assets/growth2.jpeg" class="w-full h-full img-fit" alt="Selected 2"/>
         </div>
       </div>
     </div>
   </div>
 
   <script>
-    // helper: pick first existing path (tries assets/ and root, .jpeg and .jpg)
-    async function pickExisting(paths){
-      for(const p of paths){
-        try{ const r = await fetch(p,{method:'HEAD',cache:'no-store'}); if(r.ok) return p + '?v=' + Date.now(); }catch(e){}
-      }
-      return null;
-    }
+    // open/close Timeline modal
+    const pdfModal = document.getElementById('pdfModal');
+    document.getElementById('openPdf').addEventListener('click', ()=>{ pdfModal.classList.remove('hidden'); document.body.style.overflow='hidden'; });
+    document.getElementById('closePdf').addEventListener('click', ()=>{ pdfModal.classList.add('hidden'); document.body.style.overflow='auto'; });
+    pdfModal.addEventListener('click', (e)=>{ if(e.target===pdfModal){ pdfModal.classList.add('hidden'); document.body.style.overflow='auto'; }});
 
-    // wire Timeline (PDF)
-    (async ()=>{
-      const pdf = await pickExisting(['./assets/timeline.pdf','./timeline.pdf','./assets/Map.pdf','./Map.pdf']);
-      const open = document.getElementById('openPdf');
-      const modal = document.getElementById('pdfModal');
-      const frame = document.getElementById('pdfFrame');
-      open.addEventListener('click', ()=>{ if(!pdf) return; frame.src = pdf + '#toolbar=0&view=FitH'; modal.classList.remove('hidden'); document.body.style.overflow='hidden'; });
-      document.getElementById('closePdf').addEventListener('click', ()=>{ modal.classList.add('hidden'); document.body.style.overflow='auto'; frame.src=''; });
-      modal.addEventListener('click', (e)=>{ if(e.target===modal){ modal.classList.add('hidden'); document.body.style.overflow='auto'; frame.src=''; }});
-    })();
-
-    // wire Selected Projects (JPEG/JPG anywhere)
-    (async ()=>{
-      const img1 = await pickExisting(['./assets/growth1.jpeg','./assets/growth1.jpg','./growth1.jpeg','./growth1.jpg']);
-      const img2 = await pickExisting(['./assets/growth2.jpeg','./assets/growth2.jpg','./growth2.jpeg','./growth2.jpg']);
-      const btn = document.getElementById('openSelected');
-      const modal = document.getElementById('selectedModal');
-      const i1 = document.getElementById('sel1');
-      const i2 = document.getElementById('sel2');
-
-      btn.addEventListener('click', ()=>{
-        if(img1) i1.src = img1;
-        if(img2) i2.src = img2;
-        modal.classList.remove('hidden');
-        document.body.style.overflow='hidden';
-      });
-      document.getElementById('closeSelected').addEventListener('click', ()=>{ modal.classList.add('hidden'); document.body.style.overflow='auto'; i1.src=''; i2.src=''; });
-      modal.addEventListener('click', (e)=>{ if(e.target===modal){ modal.classList.add('hidden'); document.body.style.overflow='auto'; i1.src=''; i2.src=''; }});
-    })();
+    // open/close Selected Projects modal
+    const selectedModal = document.getElementById('selectedModal');
+    document.getElementById('openSelected').addEventListener('click', ()=>{ selectedModal.classList.remove('hidden'); document.body.style.overflow='hidden'; });
+    document.getElementById('closeSelected').addEventListener('click', ()=>{ selectedModal.classList.add('hidden'); document.body.style.overflow='auto'; });
+    selectedModal.addEventListener('click', (e)=>{ if(e.target===selectedModal){ selectedModal.classList.add('hidden'); document.body.style.overflow='auto'; }});
   </script>
 </body>
 </html>
